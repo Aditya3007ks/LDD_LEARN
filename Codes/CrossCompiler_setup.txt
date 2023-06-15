@@ -1,0 +1,23 @@
+Our next task is cross compiler and toolchain download. 
+To cross-compile Linux kernel, Linux application, and kernel modules to ARM Cortex Ax architecture, we need a cross compiler.
+
+the SOC which is there on our beagle bone black hardware is AM335x, which is from Texas instruments, this SOC is based on the ARM Cortex A8 processor of ARMv7 architecture. That’s a reason why we need to have the cross compiler because we need to cross-compile all our Linux source code, the application, and the kernel modules.
+
+We are going to download cross compiler from linaro.org. You have to just head over to your browser and just type in the Google linaro toolchain
+
+If your machine is 32-bit or if you are using a 32-bit OS, then download version i686_arm-linux-gnueabihf.tar.xz. If you are using a 64-bit  machine or 64-bit OS, then you have to download x86_64 arm-linux-gnueabihf.tar.xz. 
+
+#Tool-chain installation and PATH settings
+ 
+You have to add the toolchain binary path to the home directory .bashrc file.
+
+Steps you have to follow. 
+
+Go to your home directory
+Open .bashrc using a gedit text editor
+Copy the below export command with path information to the .bashrc file
+export PATH = $PATH:<path_to_tool_chain_binaries>
+
+Save and close
+ 
+Or simply we can do: echo “export PATH=$PATH:<path_to_tool_chain_binaries>” >> ~/.bashrc

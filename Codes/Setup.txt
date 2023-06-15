@@ -1,0 +1,43 @@
+#we must prepare our host and target platforms.
+
+	Host is our laptop , target is board(beagle bone a3 in our case)
+
+#install necessary packages for setup of host machine
+
+	sudo apt-get update
+	sudo apt-get install build-essential lzop u-boot-tools net-tools bison flex libssl-dev libncurses5-dev unzip chrpath xz-utils minicom
+
+#craete empty dir and folder structure for putting code together
+	mkdir LDD && CD LDD
+	mkdir custom_drivers downloads patches source
+
+#setup target
+
+	to boot our target board, that is, BBB  via the SD card/emmc.
+	to boot we need  boot images as well as the root file system. 
+	we are going to boot using the pre-built images.
+	And after that, we are going to update the kernel by cross-compiling the kernel source, which we are going to a clone from the BeagleBone Repository.
+
+	Partiitonn sd card into 2 : 
+		Boot: fs type is FAT16 and file it will hold is MLO, u-boot and kernel image
+		RootFileSystem: will be ext4 or ext3 and it will hold debian root file system(we will download it)
+
+	Pre-built images are available here:
+		https://github.com/niekiran/linux-device-driver-1/blob/master/downloads/pre-built-images.zip
+		download that, and keep that file in your workspace under downloads.
+
+		And after that, extract it. 
+
+		Under this folder, you get another folder called SD boot, and it has pre-built images. 
+
+	Now, we have to download the root file system.
+
+		Now visit BeagleBoard.org and download the latest Debian image for Beaglebone Black 
+
+			Host and target
+
+				You should download the one which is suitable for your board, if you are using beagle bone, then you should be downloading Debian 9.9 2019-08-03 SD IoT.
+
+				This is an image for a pocket beagle, beagle bone, beaglebone black, and wireless, and for so many other boards. Just download this and place it into your download folder.
+
+ 
